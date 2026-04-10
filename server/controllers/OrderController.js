@@ -83,7 +83,7 @@ export const placeOrder = async (req, res) => {
             return res.status(400).json({ message: "Items must be a non-empty array" });
         }
 
-        const frontend_url = process.env.FRONTEND_URL;
+        const frontend_url = process.env.FRONTEND_URL || "http://localhost:5173";
 
         const foodIds = items.map(item => item.foodId);
         const foods = await Food.find({ _id: { $in: foodIds } }).lean();
