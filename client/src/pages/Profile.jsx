@@ -35,6 +35,8 @@ const Profile = () => {
             if (response.data.success) {
                 toast.success(response.data.message)
                 fetchUser()
+            } else {
+                toast.error(response.data.message);
             }
         } catch (error) {
             console.log(error);

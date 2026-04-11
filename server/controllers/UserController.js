@@ -174,8 +174,11 @@ export const checkLogin = async (req, res) => {
 export const changeProfile = async (req, res) => {
     try {
         const { id } = req.user;
-        if (!req.file) {
-            return res.json({ success: false, message: "No profile image uploaded" })
+        if (!req.file || !req.file.buffer) {
+            return res.json({
+                success: false,
+                message: "File not received on server"
+            });
         }
 
         const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
@@ -192,6 +195,7 @@ export const changeProfile = async (req, res) => {
 
         const b64 = Buffer.from(req.file.buffer).toString("base64");
         const dataURI = `data:${req.file.mimetype};base64,${b64}`;
+        
         const profileUploadResult = await cloudinary.uploader.upload(dataURI, {
             folder: "delight-profile_images"
         }
