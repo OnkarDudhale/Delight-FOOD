@@ -24,8 +24,8 @@ const LoginPopUp = ({ setShowLogin }) => {
         e.preventDefault()
         try {
             const response = currentState === "Login" ?
-                await axios.post('api/user/signIn', userData) :
-                await axios.post('api/user/signUp', userData);
+                await axios.post('/api/user/signIn', userData) :
+                await axios.post('/api/user/signUp', userData);
 
             if (response.data.success) {
 
