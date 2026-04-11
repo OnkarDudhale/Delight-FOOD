@@ -235,6 +235,7 @@ export const stripeWebhooks = async (req, res) => {
             }
 
             case "payment_intent.payment_failed": {
+                const paymentIntent = event.data.object;
                 const orderId = paymentIntent.metadata?.orderId;
 
                 if (orderId) {
