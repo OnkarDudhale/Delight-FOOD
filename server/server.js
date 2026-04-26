@@ -37,8 +37,8 @@ app.use((req, res, next) => {
 });
 
 // connect to database and Cloudinary
-connectDB();
-connectCloudinary();
+await connectDB();
+await connectCloudinary();
 
 // API endpoints
 app.use('/api/food', foodRouter);
