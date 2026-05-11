@@ -1,4 +1,3 @@
-
 const Header = ({ exploreMenu }) => {
 
     const scrollToSection = () => {

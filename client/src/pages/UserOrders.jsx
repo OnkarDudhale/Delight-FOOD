@@ -41,7 +41,7 @@ const UserOrders = () => {
                             </div>
                             <p className='flex justify-between md:items-center text-[tomato] md:font-medium max-md:flex-col'>
                                 <span>Payment : {order.paymentType}</span>
-                                <span>Status : <span className={`${order.status === "delivered"||"out for delivery" ? "text-green-500" : "text-yellow-500"}`}>{order.status}</span></span>
+                                <span>Status : <span className={`${order.status === "delivered" || "out for delivery" ? "text-green-500" : "text-yellow-500"}`}>{order.status}</span></span>
                                 <span>Total Amount : {currency}{order.amount}</span>
                             </p>
                             < hr className=' my-5' />
@@ -76,7 +76,7 @@ const UserOrders = () => {
         )
             :
             <div>
-                Nothing in user orders
+                You haven’t placed any orders yet
             </div>
 
     )
